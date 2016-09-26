@@ -22,6 +22,7 @@ public class CouponCombinator {
                     tPayAmount -= 100;
                     System.out.println("hoge");
                 }
+
                 if (0 > tPayAmount) {
                     return tUsedCoupon;
                 }
