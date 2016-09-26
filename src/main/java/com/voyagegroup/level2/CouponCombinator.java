@@ -11,27 +11,13 @@ public class CouponCombinator {
         }
 
         for (int i = 0; i < 4; i++) {
-            int tCouponNumber = Math.min(aHadCoupon[i], 2);
-            for (int j = 0; j < tCouponNumber; j++) {
-                if (i == 0) tPayAmount -= 500;
-                if (i == 1 && aHasPizza && j == 0) {
-                    tPayAmount -= 400;
-                }
-                if (i == 2) tPayAmount -= 200;
-                if (i == 3){
-                    tPayAmount -= 100;
-                    System.out.println("hoge");
-                }
-
+            CouponContext tCouponContext = new CouponContext(i, aHasPizza);
+            for (int j = 0; j < tCouponContext.getPayTimes(aHadCoupon[i]); j++) {
+                tPayAmount -= tCouponContext.getPayAmount();
                 if (0 > tPayAmount) {
                     return tUsedCoupon;
                 }
-                if (i != 1) {
-                    tUsedCoupon[i]++;
-                } else if (aHasPizza && j == 0) {
-                    tUsedCoupon[1]++;
-                }
-
+                tUsedCoupon[i]++;
             }
         }
         return tUsedCoupon;

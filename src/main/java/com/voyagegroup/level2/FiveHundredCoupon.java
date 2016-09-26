@@ -3,8 +3,8 @@ package com.voyagegroup.level2;
 public class FiveHundredCoupon implements CouponState {
     private static FiveHundredCoupon mInstance = null;
 
-    public static FiveHundredCoupon getInstance(){
-        if(mInstance == null){
+    public static FiveHundredCoupon getInstance() {
+        if (mInstance == null) {
             mInstance = new FiveHundredCoupon();
         }
         return mInstance;

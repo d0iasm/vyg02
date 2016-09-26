@@ -29,7 +29,12 @@ public class CouponCombinatorTest {
     }
 
     @Test
-    public void useCouponTest() {
-    assertThat(mCouponCombinator.pay(2200, true, new int[]{3, 2, 3, 4}), is(new int[]{2, 1, 2, 3}));
+    public void payMaxCouponTest() {
+        assertThat(mCouponCombinator.pay(2200, true, new int[]{3, 2, 3, 4}), is(new int[]{2, 1, 2, 3}));
+    }
+
+    @Test
+    public void payAllCouponNotPizzaTest(){
+        assertThat(mCouponCombinator.pay(1400, false, new int[]{2, 1, 3, 2}), is(new int[]{2, 0, 2, 0}));
     }
 }
